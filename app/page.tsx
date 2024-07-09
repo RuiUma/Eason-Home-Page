@@ -16,7 +16,7 @@ export default function Home() {
       <main className="flex-grow p-8">
         <h1 className="text-4xl font-bold mb-4">Zongrui Ma</h1>
         <Image src="/images/picture.jpg" alt="Picture" width={150} height={150} />
-        <p className="mt-4">A brief description about yourself, your hobbies, and activities.</p>
+        <p className="mt-4">A brief description about hobbies, and activities.</p>
         <p className="mt-2">Information about the college and a <a href="https://www.algonquincollege.com" className="text-blue-500 underline">link to the college</a>.</p>
       </main>
       <footer className="bg-gray-800 text-white p-4 text-center">

@@ -11,8 +11,8 @@ export async function POST(params:NextRequest) {
     const { name, email, message } = await params.json()
 
     const msg = {
-        to: email.trim(), // Change to your recipient
-        from: 'eason@umatech.work', // Change to your verified sender
+        to: email.trim(),
+        from: 'eason@umatech.work', 
         subject: `email from ${name}`,
         text: `email from ${name}`,
         html: `
