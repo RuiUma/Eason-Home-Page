@@ -7,6 +7,21 @@ export default function Contact() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const submit = async () => {
+        console.log(`Name: ${name}`)
+        console.log(`Email: ${email}`)
+        console.log(`Message: ${message}`)
+        const res = await fetch('/api/email', {
+            method: 'POST',
+            body: JSON.stringify({ name, email, message }),
+            headers: {
+              "Content-Type": "application/json",
+              // "Coding-Clubs":"fjdaskljglkfdajglk.gfjdsgiroewnmcxvzxiEFLIUJfklsajd.LJFDISJFKLHUERJKA"
+          },
+        })
+        const data = await res.json()
+        console.log(data)
+    }
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
@@ -34,11 +49,7 @@ export default function Contact() {
             <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
             <textarea value={message} onChange={(e) => setMessage(e.target.value)} id="message" name="message" required className="mt-1 p-2 border border-gray-300 rounded w-full"></textarea>
           </div>
-          <button type="button" onClick={() => {
-            console.log(`Name: ${name}`)
-            console.log(`Email: ${email}`)
-            console.log(`Message: ${message}`)
-          }} className="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+          <button type="button" onClick={submit} className="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
         </form>
       </main>
       <footer className="bg-gray-800 text-white p-4 text-center">
