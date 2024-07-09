@@ -1,9 +1,11 @@
 'use client'
 import Link from 'next/link';
 import { useState } from 'react';
+import { useToast } from "@/components/ui/use-toast"
+
 
 export default function Contact() {
-
+    const { toast } = useToast()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
@@ -21,6 +23,13 @@ export default function Contact() {
         })
         const data = await res.json()
         console.log(data)
+        setEmail('')
+        setName('')
+        setMessage('')
+        toast({
+          title: "Thank you",
+          description: "I'll reply as soon as possible.",
+        })
     }
 
   return (
